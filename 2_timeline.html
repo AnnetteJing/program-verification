@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>CS208E Final Project: Proofs of Program Correctness</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="style/bootstrap.min.css">
+	<link rel="stylesheet" href="style/bootstrap-theme.min.css">
+
+	<!-- Google fonts -->
+	<link href="style/css.html" rel="stylesheet" type="text/css">
+
+	<!-- Google Analytics -->
+	<script async="" src="scripts/analytics.js"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-60458624-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Math support https://www.mathjax.org/#gettingstarted -->
+	<!-- https://stackoverflow.com/questions/66950313/horizontal-scrollbar-for-long-matjax-equations-in-html -->
+    <script>
+		MathJax = {
+		  tex: {
+		    inlineMath: [['$', '$'], ['\\(', '\\)']]
+		  },
+		  svg: {
+		    fontCache: 'global'
+		  }
+		};
+    </script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<!-- Pop-up script -->
+	<script async="" src="scripts/popup.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/timeline_style.css">
+
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="1_background.html">Background</a></li>
+        <li><a href="2_timeline.html">Timeline</a></li>
+        <li><a href="3_related.html">Related Topics</a></li>
+        <li><a href="4_thoughts.html">Our Thoughts</a></li>
+        <li><a href="5_references.html">References</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body>
+
+	<div id="header">
+		<h1 class="increase" style="text-align:center">
+			Timeline of the Debate
+		</h1>
+		<div style="clear:both;"></div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="pop-up" class="modal">
+	<!-- Modal content -->
+	<div class="modal-content">
+	    <span class="close"></span>
+	    <div id="modal-article"></div>
+	  </div>
+	</div>
+
+	<div class="container sec">
+		Here is a timeline of how De Millo and Fetzer's papers caused massive debates about the theoretical and practical value of program verification.
+		For clearer presentation, we roughly divide the arguments into those that support verification (dark blue) and those who don't (blue), and those who are neutral (grey). 
+	</div>
+
+	<section id="timeline">
+	  <!-------------->
+	  <!-- 1979 May -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">May</span>
+	        <span class="year">1979</span>
+	      </span>
+	      <!-- De Millo, Lipton, & Perlis -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>De Millo, Lipton, & Perlis</h2>
+		      	<h4 class="first">Believing Theorems and Proofs</h4>
+			    <ul>
+				  <li><b>Classicists</b> believe a statement is true when they believe there exists a <b>formal deduction</b> that demonstrates it, while <b>probabilists</b> assign a probability based on <b>how likely</b> the statement is <b>true</b>.</li>
+				  <li>Most proofs are <b>informal</b> and bear little resemblance to formal deductive reasoning.</li>
+				  <li>After a lengthy <b>social process</b>, a theorem is considered true in the sense that it <i>could be</i> demonstrated by formal deductive logic.</li>
+				  <li>The social process consists of initial <b>message</b>, <b>internalization</b> by others, <b>transformation</b> into different forms (e.g. generalization), <b>usage</b>, etc.</li>
+				</ul>
+				<h4>The Role of Simplicity</h4>
+			    <ul>
+				  <li>Simplicity is the first filter for any proof.</li>
+				</ul>
+				<h4>Disbelieving Verifications</h4>
+			    <ul>
+				  <li>Program verifications are <b>not messages</b>, and therefore cannot go through the same social process as mathematical proofs.</li>
+				  <li>The requirement (goal) of a program is informal but the program itself is formal, so the transition from goal to program is informal.</li>
+				  <li>Formal verifications that a program is consistent with its specifications has value only if the specifications and the program are <b>independently derived</b>.</li>
+				  <li>Systems large and flexible enough to perform high-stake real-world tasks can't be verified since no one can read and internalize the verifications.</li>
+				  <li>Automatic verifying systems are unreasonable and dangerous because formal verifications are extremely <b>long</b> and promote <b>overconfidence</b> in programs. 
+				</ul>
+				<h4>The Role of Continuity</h4>
+			    <ul>
+				  <li>Verification will be able to tackle larger problems in the future, but as with other mathematical activity, it'll likely develop mainly by informal social mechanisms.</li>
+				  <li>Programs are discontinuous - <b>big</b> systems are <b>more than</b> just the <b>sum of small</b> systems, so big verifications can't be the sum of small verifications.</li>
+				</ul>
+				<h4>Believing Software</h4>
+			    <ul class="last">
+				  <li>Reliable programs are also created through social processes.</li>
+				  <li>Programs cannot be perfect, and energy shouldn't be spent to make them perfect.</li>
+				  <li>Mathematical models &ne; Reality; Reliability > Verifiability.</li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1979 Nov -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Nov</span>
+	        <span class="year">1979</span>
+	      </span>
+	      <!-- Pomerantz, Glazer, Zettel, Lienhard -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Pomerantz, Glazer, Denenberg, Zettel, Abramson, Turner</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+				  <li>All 6 commenters mostly, if not completely, agree with De Millo et al.</li>
+				  <li>Denenberg: It is sometimes important to consider both reliability and validity.</li>
+				  <li>Zettel: Approaches suggested in
+				  <a href="https://en.wikipedia.org/wiki/The_Elements_of_Programming_Style" target="_blank">
+					<div class="inline">The Elements of Programming Style by Kernighan & Plauger</div>
+				  </a>
+				  might help overcome the discontinuities of programs.</li>
+				  <li>Abramson: If a verifier is fed itself, would it terminate? If yes, how would people interpret its output? If self-application is not allowed, how would one decide which programs the verifier is applicable?</li>
+				  <li>Turner: Another limitation of automatic verifiers is that the specification, even when independently developed, is still subject to programming errors. Also, a verifier is just another encoding of the specification.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Hill -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Hill</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+				  <li>Completely agree with De Millo et al.</li>
+				  <li>There are mainly 2 kinds of software errors: 1) errors in the <b>implementation</b> of a program (bugs); 2) errors in the <b>specification</b> of a program or a system.</li>
+				  <li>The first type is typically easy to fix, so it's cost effective to delegate error detection to the users.</li>
+				  <li>The second type may require a complete rewrite of the system.</li>
+				  <li>Hence, methods for <b>avoiding misspecification</b> are much more urgently needed than methods that verify a program meets its specifications.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Lienhard -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Lienhard</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+		      	  <li>Indeed almost none of today's mathematics came out of formal reasoning, and automatic verification is impossible outside of toy examples.</li>
+				  <li>Real-life programming is not quite as chaotic as De Millo et al. described.</li>
+				  <li>Real-life programs need not find "deep theorems," but should "master complexity" because only complex software can reliably operate in real life.</li>
+				  <li>Complex software should be developed as a hierarchy of 
+				  <a href="https://en.wikipedia.org/wiki/Holon_(philosophy)" target="_blank">
+					<div class="inline">"holons"</div>
+				  </a>
+				  (known as
+				  <a href="https://en.wikipedia.org/wiki/Modular_programming target="_blank">
+					<div class="inline">modules</div>
+				  </a> 
+				  today).
+				  </li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Van den Bos -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Van den Bos</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+		      	  <li>Once one accepts the <b>quasi-empiricism</b> in mathematics and computer science, one can either side with 
+		      	  <a href="https://en.wikipedia.org/wiki/Karl_Popper#Philosophy_of_science" target="_blank">
+					<div class="inline">Popper</div></a>
+				  (theories are <b>irreducibly conjectural</b>) or 
+		      	  <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank">
+					<div class="inline">Kuhn</div></a>
+				  (theories are decided by a <b>social forum</b>).</li>
+				  <li>Mostly agrees with De Millo et al., but pointed out their ideas echo those expressed by
+				  <a href="https://books.google.com/books/about/Mathematics_Science_and_Epistemology_Vol.html?id=VepnMpJXmB8C&source=kp_book_description" target="_blank">
+					<div class="inline">Lakatos</div>
+				  </a>
+				  and Kuhn, so they're only novel on the level of analogy with computer science.
+				  </li>
+				  <li>Not a fan of Kuhn's philosophy that science is merely the established paradigm for problem solving, since it suggests astrology and scientology are on par with "normal" science.</li>
+				  <li>Disagrees with the use of probabilistic proofs, citing 
+				  <a href="http://strangebeautiful.com/other-texts/lakatos-meth-sci-research-phil-papers-1.pdf" target="_blank">
+					<div class="inline">"The Methodology of Scientific Research Programmes" by Lakatos</div>
+				  </a>
+				  , which in turn cited
+				  <a href="https://en.wikipedia.org/wiki/The_Logic_of_Scientific_Discovery" target="_blank">
+					<div class="inline">Popper (1934)</div></a>.
+				  </li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Lamport -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Lamport</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+				  <li><b>Formal verifications</b> are <b>not needed</b> for programs to be <b>published</b> - all programs are innocent until proven guilty. De Millo et al. exaggerated the extent to which verification is taking over computer science.</li>
+				  <li>Theorems are either right or wrong. It's okay to make mistakes, but we should try to prove our theorems as well as we can.</li>
+				  <li>Programs without some kind of proof are merely conjectures, which must be exceptional to warrant publication.</li>
+				  <li>"A variety of <b>test cases</b> to exercise all the main features" is <b>not a proof</b>.</li>
+				  <li>Computer scientists should <b>prove</b> the correctness of their <b>programs</b> just as mathematicians prove their theorems - <b>informally</b>, but sufficient to convince others.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Maurer -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Maurer</h2>
+		        <h4></h4>
+		        <p class="first">
+	        	Maurer responded to the following arguments from De Millo et al. he disagrees with:</p>
+				<p><i>"The requirement of a program is informal but the program is formal, so the transition must be informal."</i></p>
+				<ul>
+				  <li>Software correctness consists of: 1) <b>program correctness</b> (does a program satisfy its specifications?) and 2) <b>specification correctness</b> (are the specifications what the users want?).</li>
+				  <li>Only program correctness can be verified formally.</li>
+				  <li>To prove software correctness, both the formal and informal steps are required.</li>
+				  <li>Improvement upon either part can increase our confidence in the program.</li>
+				</ul>
+				<p><i>"Bertrand Russell showed formal proofs can be done in principle but can't be done in practice."</i></p>
+				<ul>
+				  <li>Russell's <i>Principia Mathematica</i> could be verified in less than 2 hours.</li>
+				  <li>While some programs can't be verified, it doesn't mean it is futile to try prove other programs.</li>
+				  <li>The goal of verfication is to provide a <b>new method</b>, and <b>not</b> to become the <b>only</b> allowed <b>method</b>.</li>
+				</ul>
+				<p><i>"Most published theorems get ignored or discredited. There is no guarantee the proofs are correct."</i></p>
+				<ul>
+				  <li>This is because the mathematicians don't use computers to verify their proofs.</li>
+				</ul>
+				<p><i>"Even when a program gets verified, the programmer still doesn't know within what limits the program will work."</i></p>
+				<ul>
+				  <li>This is incorrect, all limits on the program is built into an entry assertion that needs to be valid for the verification to proceed.</li>
+				</ul>
+				<p><i>"Verifications are not messages, no one is going to read them."</i></p>
+				<ul>
+				  <li>Not true. <b>Published verifications</b> are <b>usually informal</b>, which is readable.</li>
+				  <li>No one reads the output of a compiler either. The goal of verification is to do what a compiler does, but for proofs.</li>
+				</ul>
+				<p><i>"There are black-box code that work for no reason that anyone knows. It makes any program in which it appeared unverifiable, but people still use it."</i></p>
+				<ul>
+				  <li>Black-box code is equivalent to conjectures.</li>
+				  <li>Conjectures don't make a program unprovable, we just say it is provable up to the conjectures that were used.</li>
+				</ul>
+				<p><i>"Altering a single line of a program can destroy a program, so there is no reason to believe a big verification can be the sum of small verifications."</i></p>
+				<ul>
+				  <li>The <b>former</b> statement is true, but <b>does not imply</b> the <b>later</b> statement.</li>
+				  <li>While call by reference lead to trouble, there are correct ways to handle subroutines correctly when calling by value.</li>
+				</ul>
+				<p><i>"Fully automated verifying systems are impossible."</i></p>
+				<ul>
+				  <li>This is true, but a verifier does not have to be fully automated in order to be useful.</li>
+				</ul>
+				<p><i>"The programmer inserts his 300-line input/output package into the verifier. Several hours later, he returns. There is his 20,000-line verification and the message 'VERIFIED'."</i></p>
+				<ul>
+				  <li>It will take about as long as a compilation, not several hours; and it will not be 20,000 lines of output.</li>
+				  <li>Just like compilations, it will not normally produce usable results on the first run.</li>
+				  <li>The message does not read simply 'VERIFIED', but will print out whether the entry and exit assertions are met and specification errors if there are any.</li>
+				</ul>
+				<p>He does agree, however, with the following statements:</p>
+				<ul class="last">
+				  <li>Verification should not be taught in elementary programming classes.</li>
+				  <li>It is not the moment to restrict research on programming.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- De Millo, Lipton, & Perlis -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>De Millo, Lipton, & Perlis</h2>
+		      	<h4></h4>
+		      	<ul class="only">
+				  <li><i>Re Van de Bos:</i> The assertion concerning "normal science" is wrong - scientific theories should have <b>tests</b> in reality.</li>
+				  <li><i>Re Lienhard, Denenberg:</i> If by validity they mean knowledge in fact of correctness, validity is not possible.</li>
+				  <li><i>Re Lienhard, Hill, Zettel:</i> Programming style is useful, but can't go far in the absence of talent.</li>
+				  <li><i>Re Abramson:</i> Valid point, but this esoteric example does not necessarily imply that verification is meaningless.</li>
+				  <li><i>Re Turner:</i> Agreed. If formal specifications are less prone to errors, why not use them in place of the program?</li>
+				  <li><i>Re Lamport, Maurer:</i> They are confusing <b>algorithms</b> with programs. The only potential virtue of program proving lies in the hope of obtaining perfection</li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1988 Sep -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Sep</span>
+	        <span class="year">1988</span>
+	      </span>
+	      <!-- Fetzer -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Fetzer</h2>
+		      <h4 class="first">Mathematics as a Fallible Social Process</h4>
+			    <ul>
+				  <li>A proof's <b>validity</b> is <b>innate</b>, and not dependent on its acceptance by us as valid.</li>
+				  <li>Hence, social processes have nothing to do with a proof's validity as De Millo et al. suggested.</li>
+				</ul>
+				<h4>Deductive Validity & Psychological Certainty</h4>
+			    <ul>
+				  <li>Confidence in the truth of a theorem is a psychological property that differ from person to person.</li>
+				  <li>Having <b>maximum confidence</b> in the truth of a theorem is <b>not equal to  knowing</b> the theorem is <b>true</b>, unless this belief can be supported by <b>demonstrations</b>.</li>
+				  <li>There are two types of verification within a system of natural deduction or an axiomatic formal system - absolute and relative.</li>
+				  <li><b>Absolute</b> verification: Can be derived from <b>no premises</b> or <b>primitive axioms</b> alone.</li>
+				  <li><b>Relative</b> verification: Can only be derived from <b>specific sets of premises</b> whose truth is not absolutely verifiable.</li>
+				</ul>
+				<h4>Constructing Proofs & Verifying Programs</h4>
+			    <ul>
+				  <li>The <b>truth of the conclusion</b> of a valid deductive argument can never be more certain than the <b>truth of its premises</b>.</li>
+				  <li>If the premises are not <b>absolutely verifiable</b>, their truth should be established <b>independently</b> from the argument.</li>
+				  <li>A good <b>deductive</b> argument is 1) <b>demonstrative</b> - if its premises are true, so are its conclusions; 2) <b>non-ampliative</b> - no information in its conclusions is in its premises; 3) <b>additive</b> - additional premises can neither strengthen nor weaken the argument. Deductive arguments satisfying these are said to be <b>valid</b>.</li>
+				  <li><b>Inductive</b> arguments are the opposite - 1) <b>non-demonstrative</b>; 2) <b>ampliative</b>; and 3) <b>non-additive</b>. Inductive arguments satisfying theses are said to be <b>proper</b>.</li>
+				  <li>Valid deductive arguments with true premises are said to be <b>sound</b> and cannot have false conclusions (meant to <b>preserve truth</b>). Proper inductive arguments with true premises are called <b>correct</b>, but might still come to false conclusions (meant to <b>expand knowledge</b>).</li>
+				  <li>If programs are verifiable, they must be subject to deductive procedures. Indeed, this idea is advanced by <a href="https://en.wikipedia.org/wiki/Hoare_logic" target="_blank">Hoare</a>.</li>
+				  <li>For program verification to work, programs need to be absolutely or relatively verifiable with appropriate primitive program axioms or premises from which conclusions about the <b>performance of the machine</b> running it can be derived.</li>
+				</ul>
+				<h4>Social Processes & Program Verifications</h4>
+			    <ul>
+				  <li>Programs and mathematical proofs are both syntactical entities and appear to be completely formalized, but programs have a semantic significance - the lines stand for procedures that can be performed by a machine.</li>
+				  <li></li>
+				</ul>
+				<h4>The Conception of Probabilistic Proofs</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Mathematical Proofs & Probable Verifications</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Cumulative Complexity & Patch-work Complexity</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Theorems, Algorithms, & Programs</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Abstract Machines v.s. Target Machines</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>The Very Idea of Program Verification</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Computer Programs as Applied Mathematics</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Inductive Testing & Computer Programs</h4>
+			    <ul>
+				  <li></li>
+				  <li></li>
+				</ul>
+				<h4>Complexity & Reliability</h4>
+			    <ul class="last">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1989 Mar -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Mar</span>
+	        <span class="year">1989</span>
+	      </span>
+	      <!-- Ardis et al. -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Ardis et al.</h2>
+		        <h4></h4>
+		        <ul class="only">
+		          <li>Fetzer’s argument <b>misrepresents the goals</b> of program verification as providing an absolute guarantee of correctness with respect to the execution of a program on computer hardware.</li>
+				  <li>Fetzer never provided a concise and well supported definition of verification and does not understand how mathematics and verifications are applied in engineering endeavours.</li>
+				  <li>An example is the assumption that verification can only be applied to abstract programs written in high-level languages, which is untrue - there is a large body of work that applies formal verification to <b>compilers, operating systems, and computer hardware</b>.</li>
+				  <li>Fetzer's conclusion is flawed because 1) it does not have solid bases; 2) it pretends to cover not only verification, but also all kinds of research in computer sciences.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Fetzer -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Fetzer</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Many statements Ardis et al. described as having no support are actually supported by articles mentioned in the paper.</li>
+				  <li>His main point, though, is that Ardis et al. did not understand his conclusion. He never said, as Ardis et al. argue, that pursuing program verification is totally useless and harmful for the field. His point is that program verification cannot guarantee the correct performance of any program.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Denning (ACM Editor in Chief) -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="grey">Denning (ACM Editor in Chief)</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer’s article went through a meticulous process of review and editing.</li>
+				  <li>Both sides of the polemics, those with Fetzer and those against him, are valid. A respectful exchange between both parties could be fruitful to the field of program verification.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Pleasant -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Pleasant</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer did not make clear what <b>interpretation of "program"</b> he has in mind when he concluded that verification does not guarantee the performance of a program.</li>
+				  <li>Fetzer claimed that deductive verification should be applied to algorithms instead of programs, but the <b>distinction between "algorithms" and "programs"</b> is <b>artificial</b>.</li>
+				  <li>What Fetzer says about 1) algorithms as logical structures subject to verification and 2) empirical evidence being a prerequisite for concluding the program's reliability when run on a real machine are obvious. Nevertheless, his critiques for the arguments given by De Millo et al. are justified.</li>
+				  <li>The next step that Fetzer takes in his argument - that the methods employed to verify an algorithm cannot be used to verify algorithms encoded in a programming language - does not have enough support. For instance, <b>loop invariants</b> are useful in practice.</li>
+				  <li>Even though Pleasant does not agree with the conclusions of Fetzer or De Millo et al., he concedes that they are raising up interesting questions.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Paulson, Cohen, & Gordon -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Paulson, Cohen, & Gordon</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer's point that "since a computer system involves physical components that can behave unpredictably, no deductive argument can guarantee that it will work perfectly" is obvious. </li>
+				  <li>Fetzer's conclusion that verification is useless due to the above fact is absurd - a system can fail for physical or logical reasons, verification locates <b>logical faults</b> before they can cause harm.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Bevier, Smith, & Young -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Bevier, Smith, & Young</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer does a service in pointing out flaws in the  argument of DeMillo et al., but a profound disservice in reviving their conclusion.</li>
+				  <li>Fetzer’s argument <b>misrepresents the goals</b> of program verification. His claim that the purpose of program verification is to guarantee <b>perfect execution</b> of a program on hardware is false.</li>
+				  <li>The goal of program verification is to <b>bridge the gap between algorithms and executions</b> through discovering techniques for mathematically describing an algorithm so the execution has a <b>high degree of accuracy</b>.</li>
+				  <li>Fetzer’s <b>all-or-nothing argument</b> is <b>pointless</b> for software engineering. Why test programs or code carefully when they don't guarantee perfect execution?</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Clune -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="grey">Clune</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer’s assessment of DeMillo et al. is too harsh. He seems to assume anything that is not certain is random, while <b>social practice</b> can provide an <b>indication of</b> the undelying <b>formal conditions</b>.</li>
+				  <li>Fetzer has uncovered the structural bedrock that underlies the great divide between the practice of computer science and software engineering. <b>Computer science</b> is about <b>processes</b>, while <b>software engineering</b> is about <b>products</b>.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Savitsky -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="grey">Savitsky</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Many <b>useful</b> programs are not only <b>unverifiable</b>, they are <b>incorrect</b>. A verifiably incorrect program can sometimes be more useful than a correct program.</li>
+				  <li>Programs that function correctly in isolation could function incorrectly when they are coupled together. For example, a compiler can run out of memory when someone else is sharing the machine.</li>
+				  <li>Formal logic is a terrible programming language, and formal specifications do not necessarily encode what the user wants.</li>
+				  <li>Most important requirements of real programs are not formalizable.</li>
+				  <li><b>Programming</b> is, for these reasons, more a <b>craft</b> than a science. There is, indeed, a <b>science of computing</b>, but it is dangerous to ignore the distinction. For example, one wouldn't hire a theoretical physicist to build a house.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Fetzer -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Fetzer</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li><i>Re Pleasant:</i> <a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank">Hoare</a> himself said "programming is an exact science in that all the properties of a program and <b>all the consequences of executing it</b> can, in principle, be found out from the text of the program itself by means of purely deductive reasoning," which is an unjustifiable statement.</li>
+				  <li><i>Re Paulson, Cohen, Gordon:</i> Fetzer says that he did not conclude verification is useless, but argues that verification plays a much more <b>limited role</b> in assuring the production of high quality software than advocates suggest.</li>
+				  <li><i>Re Bevier, Smith, Young:</i> Fetzer sees them as more open to understanding and engaging with his arguments. He finds particularly interesting the role that they give to mathematics in computer science.</li>
+				  <li><i>Re Clune:</i> Fetzer finds most of Clune's argument reassuring, but doesn't quite understand the analogy between computer science as process and software engineering as product in relation to the distinction between syntax and semantics.</li>
+				  <li><i>Re Savitzky:</i> Fetzer particularly likes Savitzky’s vision of programming as a craft and not a science, and believes this offers more reasons as to why verification is fraught with hazard.</li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1989 Apr -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Apr</span>
+	        <span class="year">1989</span>
+	      </span>
+	      <!-- Dobson & Randell -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Dobson & Randell</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>The main point of contention between Fetzer and verificationists is the way they represent this activity. While Fetzer thinks that verificationists represent their own work as providing <b>explanatory reasons</b> for program verification. They, in reality, see their work as providing <b>evidential reasons</b>.</li>
+				  <li>In program verification what matters is that a program cannot be falsified, but from a mathematical perspective what matters is not refutation, but proof.</li>
+				  <li>Strong opposition to Fetzer’s article is an example of “groupthink.” The verification community reacted strongly to it because the way they see their own work is not the same way it is perceived by outsiders.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Müller -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Müller</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Engineers do not view their machines as merely physical implementations of theoretical algorithms, which, according to Fetzer, has no deductive proofs can can only rely on inductive statements (e.g. the machine works most of the time, let's hope it continues to do that).</li>
+				  <li>Instead, the main activity of an engineer is to <b>impose the laws</b> required for deductive reasoning onto the machines.</li>
+				  <li>The world is not just "<b>pure things</b>" (theoretical constructs that can be deductively proven) and "<b>nature</b>" (real things that can only be perceived and explained inductively). There is a thirdfold - "<b>made things</b>," which includes machines constructed artificially to correspond to theoretical designs.</li>
+				  <li>Fetzer is right in that we can only verify programs relative to certain premises, but it doesn't mean these proofs are only inductive proofs or no proofs at all.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Holt -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Holt</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li><a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank">Hoare</a> made a point of requiring not just the correctness of a program but also that of its <b>compiler</b> and the <b>hardware</b>.</li>
+				  <li>Most programmers <b>assume correctness of implementation</b> as an axiom, but based on Fetzer's argument they are all "algorithmists" instead.</li>
+				  <li>It is true the specifications of a program must be mapped to the real world and can only be done so inductively, so one should never trust a large program running a life-critical system.</li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Watters -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Watters</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li>Fetzer dismissed the most important points in the paper by De Millo et al.</li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Fetzer -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Fetzer</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li><i>Re Müller:</i> Fetzer believes Müller's idea about "made things" strengthens his position and says one aim of his article is to reintroduce the importance of the machine within the context of theoretical computer science.</li>
+				  <li><i>Re Holt:</i> Fetzer agrees with most things, except he thinks Hoare's claim is problematic because the correctness of a physical machine cannot be established with mathematical certainty.</li>
+				  <li><i>Re Watters:</i> </li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1989 Jul -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Jul</span>
+	        <span class="year">1989</span>
+	      </span>
+	      <!-- Hill -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Hill</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Conte -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Conte</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Parsons -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Parsons</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Geller -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Geller</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+		  <!-- Nelson -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2>Nelson</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	  <!-------------->
+	  <!-- 1989 Sep -->
+	  <!-------------->
+	  <div>
+	  	  <span class="date">
+	        <span class="month">Sep</span>
+	        <span class="year">1989</span>
+	      </span>
+	      <!-- Nelson -->
+		  <article>
+		    <div class="inner">
+		      <span class="bullet"></span>
+		      <h2 class="dark">Tompkins</h2>
+		      <h4></h4>
+		        <ul class="only">
+				  <li></li>
+				  <li></li>
+				</ul>
+		    </div>
+		  </article>
+	  </div>
+	</section>
+
+	<div class="container sec">
+		For more recent discussions about the value and limitations of program verification, the website <a href="http://lambda-the-ultimate.org" target="_blank">lambda-the-ultimate.org</a> has discussion threads about both <a href="http://lambda-the-ultimate.org/node/2254" target="_blank">De Millo et al.</a> and <a href="http://lambda-the-ultimate.org/node/2783" target="_blank">Fetzer</a>'s papers.
+	</div>
+
+	<div id="footer">
+		<div id="classicons">
+			Modified from  
+			<a href="https://codepen.io/rosstopping/pen/rcxGb" target="_blank">webdesign</a>
+			by 
+			<a href="https://github.com/rosstopping?tab=repositories" target="_blank">Ross McNeil</a>
+			<br>
+		</div>
+	</div>
+
+	<!-- jQuery and Boostrap -->
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+
+</body>
+
+
+
+</html>

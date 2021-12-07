@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>CS208E Final Project: Proofs of Program Correctness</title>
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="style/bootstrap.min.css">
+	<link rel="stylesheet" href="style/bootstrap-theme.min.css">
+
+	<!-- Google fonts -->
+	<link href="style/css.html" rel="stylesheet" type="text/css">
+
+	<!-- Google Analytics -->
+	<script async="" src="scripts/analytics.js"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-60458624-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Math support https://www.mathjax.org/#gettingstarted -->
+	<!-- https://stackoverflow.com/questions/66950313/horizontal-scrollbar-for-long-matjax-equations-in-html -->
+    <script>
+		MathJax = {
+		  tex: {
+		    inlineMath: [['$', '$'], ['\\(', '\\)']]
+		  },
+		  svg: {
+		    fontCache: 'global'
+		  }
+		};
+    </script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="1_background.html">Background</a></li>
+        <li><a href="2_timeline.html">Timeline</a></li>
+        <li><a href="3_related.html">Related Topics</a></li>
+        <li><a href="4_thoughts.html">Our Thoughts</a></li>
+        <li><a href="5_references.html">References</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body>
+
+	<div id="header">
+		<h1 class="increase" style="text-align:center">
+			Background Information of Relevant Topics
+		</h1>
+		<div style="clear:both;"></div>
+	</div>
+
+    <div class="sechighlight">
+		<div class="container sec">
+
+			<h2>The Philosophy of Science</h2>
+			<br>
+
+			<h4>Ray D. Bradbury, “The Sound of Thunder” (1952) <a href="https://en.wikipedia.org/wiki/A_Sound_of_Thunder" target="_blank">&#128279</a></h4>
+			<div id="coursedesc">
+				<ul>
+					<li>This short story is about a man that travels millions of years into the past and steps on a butterfly by accident. When he goes back to his present, he discovers that a totally new and radically different political system is in place.</li>
+					<li>It is mentioned by De Millo, Lipton, and Perlis in their article to illustrate how small changes in a program can produce unexpected and even chaotic results.</li>
+				</ul>
+			</div>
+
+			<hr>
+
+			<h4>Thomas S. Kuhn, <i>The Structure of Scientific Revolutions</i> (1962) <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank">&#128279</a></h4>
+			<div id="coursedesc">
+				<ul>
+					<li>The book focuses on the context of the <b>Scientific Revolution</b> in Early Modernity with the adoption of Copernicus’ astronomical model.</li>
+					<li>In this text Kuhn elaborated the concept of paradigm. A <b>paradigm</b> is a set of rules, theories, principles, methodologies shared by a (scientific) community. </li>
+					<li>Thus, what characterizes the Scientific Revolution is not that it turned science into an accurate and truthful field, but that the <b>system</b> employed before became <b>insufficient</b> to provide answers for many questions that were being raised and <b>new paradigms</b> started to be considered.</li>
+					<li>Fetzer mentions this author as an example of a certain perspective in philosophy that “emphasizes the social dimension in scientific communities.” He implies that De Millo et al. are taking this same position.</li>
+					<li>De Millo, Lipton, and Perlis mention this book to illustrate how even famous and well established theorems like Euler’s formula went through several transformations after their initial conception.</li>
+				</ul>
+			</div>
+
+			<hr>
+
+			<h4>Karl R. Popper, <i>Conjectures and Refutations: The Growth of Scientific Knowledge</i> (1963) <a href="https://books.google.com/books/about/Conjectures_and_Refutations.html?id=IENmxiVBaSoC" target="_blank">&#128279</a></h4>
+			<div id="coursedesc">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+
+			<hr>
+
+			<h4>Imre Lakatos, <i>Proofs and Refutations: The Logic of Mathematical Discovery</i> (1976) <a href="https://en.wikipedia.org/wiki/Proofs_and_Refutations" target="_blank">&#128279</a></h4>
+			<div id="coursedesc">
+				<ul>
+					<li>It was written as a Socratic dialogue.</li>
+					<li>In this book, Lakatos established that no theorem is totally complete, that they are <b>not</b> a representation of a <b>true fact</b>, but just an <b>explanation with no solid counterexample</b> yet found.</li>
+					<li>Before publishing this book, Lakatos introduced in 1970 the concept of "<b>research programme</b>." With this, he pointed out that <b>science</b> is constituted by a <b>community of people</b> who share some principles and interests. It is by sharing these elements that research on a specific field is done and new theories emerge, either validating, expanding, or contradicting the principles that support this community.</li>
+				</ul>
+			</div>
+
+			<hr>
+
+			<h4>Paul K. Feyerabend, <i>Against Method: Outline of an Anarchistic Theory of Knowledge</i> (1975) <a href="https://en.wikipedia.org/wiki/Against_Method" target="_blank">&#128279</a></h4>
+			<div id="coursedesc">
+				<ul>
+					<li>Feyerabend took Lakatos’ and Kuhn’s considerations one step further and argued that what determines what research programme or paradigm should be followed is <b>propaganda</b>.</li>
+					<li>For Feyerabend, science is guided by stylistic elements such as attractive theories, simple arguments, or elegant expressions.</li>
+				</ul>
+			</div>
+
+			<hr>
+
+
+			<h2>Program Verification</h2>
+			In this section, we will talk about the background of program verification and introduce some basic ideas as well as examples. 
+			The content here is drawn heavily from 
+			<a href="http://formal.cs.illinois.edu/meseguer/" target="_blank">
+				<div class="inline">Professor José Meseguer's</div>
+			</a>
+			<a href="https://courses.engr.illinois.edu/cs476/sp2020/" target="_blank">
+				<div class="inline">lecture notes</div>
+			</a>
+			on program verification and various Wikipedia pages. 
+    
+		    <!-- <div class="numbered_equation_container">
+		        <div class="equation">
+		            $$E=mc^2$$
+		        </div>
+		        <div class="equation_number">(1)</div>
+		    </div>
+		    
+		    <div class="numbered_equation_container">
+		        <div class="equation">
+		            $$\frac{dF}{dx}\frac{dx}{dy}\frac{dy}{d\xi}=\intop_{\mathbb{R}}f(\zeta)e^{-\zeta}\cos(w^{2}-\zeta)\
+		            d\zeta+\frac{3x^{3}+(\nabla\times\boldsymbol{E})\cdot\boldsymbol{B}}{\vec{r}\cdot\vec{E}}+8\pi\hbar+\log\cos\tan\sin\pi$$
+		        </div>
+		        <div class="equation_number">&nbsp;&nbsp;&nbsp;&nbsp;(2)</div>
+		    </div>
+		    
+		    <code>body</code> -->
+		</div>	
+
+		<div id="footer">
+			<div id="classicons">
+				Modified from webdesign by 
+				<a href="https://karpathy.ai" target="_blank">Andrej Karpathy</a>
+				<br>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- jQuery and Boostrap -->
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>
