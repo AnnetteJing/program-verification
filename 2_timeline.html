@@ -98,7 +98,7 @@
 
 	<div class="container sec">
 		Here is a timeline of how De Millo and Fetzer's papers caused massive debates about the theoretical and practical value of program verification.
-		For clearer presentation, we roughly divide the arguments into those that support verification (dark blue) and those who don't (blue), and those who are neutral (grey). 
+		For clearer presentation, we roughly divide the arguments into those that support verification (dark blue), those who don't (blue), and those who are neutral (grey). 
 	</div>
 
 	<section id="timeline">
@@ -361,13 +361,12 @@
 				  <li>Confidence in the truth of a theorem is a psychological property that differ from person to person.</li>
 				  <li>Having <b>maximum confidence</b> in the truth of a theorem is <b>not equal to  knowing</b> the theorem is <b>true</b>, unless this belief can be supported by <b>demonstrations</b>.</li>
 				  <li>There are two types of verification within a system of natural deduction or an axiomatic formal system - absolute and relative.</li>
-				  <li><b>Absolute</b> verification: Can be derived from <b>no premises</b> or <b>primitive axioms</b> alone.</li>
-				  <li><b>Relative</b> verification: Can only be derived from <b>specific sets of premises</b> whose truth is not absolutely verifiable.</li>
+				  <li><b>Absolute verification</b>: Can be derived from <b>no premises</b> or <b>primitive axioms</b> alone.</li>
+				  <li><b>Relative verification</b>: Can only be derived from <b>specific sets of premises</b> whose truth is not absolutely verifiable.</li>
 				</ul>
 				<h4>Constructing Proofs & Verifying Programs</h4>
 			    <ul>
 				  <li>The <b>truth of the conclusion</b> of a valid deductive argument can never be more certain than the <b>truth of its premises</b>.</li>
-				  <li>If the premises are not <b>absolutely verifiable</b>, their truth should be established <b>independently</b> from the argument.</li>
 				  <li>A good <b>deductive</b> argument is 1) <b>demonstrative</b> - if its premises are true, so are its conclusions; 2) <b>non-ampliative</b> - no information in its conclusions is in its premises; 3) <b>additive</b> - additional premises can neither strengthen nor weaken the argument. Deductive arguments satisfying these are said to be <b>valid</b>.</li>
 				  <li><b>Inductive</b> arguments are the opposite - 1) <b>non-demonstrative</b>; 2) <b>ampliative</b>; and 3) <b>non-additive</b>. Inductive arguments satisfying theses are said to be <b>proper</b>.</li>
 				  <li>Valid deductive arguments with true premises are said to be <b>sound</b> and cannot have false conclusions (meant to <b>preserve truth</b>). Proper inductive arguments with true premises are called <b>correct</b>, but might still come to false conclusions (meant to <b>expand knowledge</b>).</li>
@@ -377,52 +376,38 @@
 				<h4>Social Processes & Program Verifications</h4>
 			    <ul>
 				  <li>Programs and mathematical proofs are both syntactical entities and appear to be completely formalized, but programs have a semantic significance - the lines stand for procedures that can be performed by a machine.</li>
-				  <li></li>
+				  <li>The existence of social processes of program verification may be more important for writing reliable code than it is for validating proofs.</li>
+				  <li>While it's likely true not many people want to read verifications, this can <b>change with societal conditions</b>, such as if substiantial financial rewards were offered to people with the best verifications. In this case, a social process for verification could emerge and the underlying position of De Millo et al. would no longer apply.</li>
 				</ul>
 				<h4>The Conception of Probabilistic Proofs</h4>
 			    <ul>
-				  <li></li>
-				  <li></li>
-				</ul>
-				<h4>Mathematical Proofs & Probable Verifications</h4>
-			    <ul>
-				  <li></li>
-				  <li></li>
+				  <li>De Millo et al. seem to be endorsing the conception that arguments are measured by degrees of conviction rather than binary truth.</li>
+				  <li>This suggests that classical proofs are impossible yet fallacies are still unacceptable, which can be seen as advocating for math to become a domain of inductive procedure.</li>
 				</ul>
 				<h4>Cumulative Complexity & Patch-work Complexity</h4>
 			    <ul>
-				  <li></li>
-				  <li></li>
+				  <li>While Maurer and De Millo et al. have vastly differnt stances about the validity of the scaling-up argument (complex programs are made up of small programs), their views are closely related.</li>
+				  <li><b>Cumulative complexity</b>: the complexity of larger programs arising when they consist of relatively <b>straightforward arrangements</b> of smaller programs.</li>
+				  <li><b>Patch-work complexity</b>: the complexity of larger programs arising when they consist of complicated, ad hoc, <b>peculiar arrangements</b> of smaller programs.</li>
+				  <li>The verificationists attitude is appropriate in the face of cumulative complexity but not patch-work complexty, while it's the reverse for anti-verificationists.</li>
 				</ul>
 				<h4>Theorems, Algorithms, & Programs</h4>
 			    <ul>
-				  <li></li>
-				  <li></li>
+				  <li>A <b>program</b> is a particular <b>implementation of an algorithm</b> in a form that is suitable for execution by a machine.</li>
+				  <li>This fundamental difference is why <b>verification of algorithms</b> does not hold the same weight as proofs of theorems when the goal is to guarantee the <b>performance of programs</b>.</li>
 				</ul>
 				<h4>Abstract Machines v.s. Target Machines</h4>
 			    <ul>
-				  <li></li>
-				  <li></li>
+			      <li>"Program" can refer to (i) algorithms, (ii) encodings of algorithms, (iii) encodings of algorithms that can be compiled, (iv) encodings of algorithms that can be compiled and executed by a machine.</li>
+				  <li><b>Abstract machines</b> are logical systems that don't exist in space/time, whereas <b>target machines</b> we want to run our program on are usually physical systems.</li>
+				  <li>Given a language (need not be executable), (i) & (ii) can be subjected to absolute verification on abstract machines.</li>
+				  <li>(iii) & (iv) can at best be subjected to relative verification on physical machines.</li>
 				</ul>
 				<h4>The Very Idea of Program Verification</h4>
 			    <ul>
-				  <li></li>
-				  <li></li>
-				</ul>
-				<h4>Computer Programs as Applied Mathematics</h4>
-			    <ul>
-				  <li></li>
-				  <li></li>
-				</ul>
-				<h4>Inductive Testing & Computer Programs</h4>
-			    <ul>
-				  <li></li>
-				  <li></li>
-				</ul>
-				<h4>Complexity & Reliability</h4>
-			    <ul class="last">
-				  <li></li>
-				  <li></li>
+				  <li><a href="https://en.wikipedia.org/wiki/Tony_Hoare" target="_blank">Hoare</a> says "When the correctness of a program, ifs compiler, and the hardware of the computer have all been established with mathematical certainty, if will be possible to place great reliance on the results of the program, and predict their properties with a confidence limited only by the reliability of the electronics."</li>
+				  <li>If the goal of a program is to satisfy the constraints imposed by an abstract machine, then Hoare's principles are true.</li>
+				  <li>However, if the constraints imposed by the abstract machine has an intended interpretation with respect to a <b>physical system</b>, Hoare's principles are false. In particular, the behavior of the physical system <b>cannot be subject to</b> conclusive <b>absolute verification</b>.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -457,7 +442,7 @@
 		      <h4></h4>
 		        <ul class="only">
 				  <li>Many statements Ardis et al. described as having no support are actually supported by articles mentioned in the paper.</li>
-				  <li>His main point, though, is that Ardis et al. did not understand his conclusion. He never said, as Ardis et al. argue, that pursuing program verification is totally useless and harmful for the field. His point is that program verification cannot guarantee the correct performance of any program.</li>
+				  <li>Fetzer's main point, though, is that Ardis et al. did not understand his conclusion. He never said, as Ardis et al. argue, that pursuing program verification is totally useless and harmful for the field. His point is that program verification cannot guarantee the correct performance of any program.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -612,8 +597,8 @@
 		      <h2>Watters</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li>Fetzer dismissed the most important points in the paper by De Millo et al.</li>
-				  <li></li>
+				  <li>Fetzer dismissed the most important points in the paper by De Millo et al. and provided a less interesting argument.</li>
+				  <li>Watters stated that he is personally not interested in program verification because 1) people have been claiming a software revolution based on verification is around the corner for 20+ years but it never happened; 2) it's more useful to study problem solving techniques than mechanistic methods; 3) math is about ideas rather than manipulation of symbols, the excess use of symbols in computer science often conceals ideas.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -626,7 +611,7 @@
 		        <ul class="only">
 				  <li><i>Re Müller:</i> Fetzer believes Müller's idea about "made things" strengthens his position and says one aim of his article is to reintroduce the importance of the machine within the context of theoretical computer science.</li>
 				  <li><i>Re Holt:</i> Fetzer agrees with most things, except he thinks Hoare's claim is problematic because the correctness of a physical machine cannot be established with mathematical certainty.</li>
-				  <li><i>Re Watters:</i> </li>
+				  <li><i>Re Watters:</i> Fetzer thinks Watter is merely denying the interest and not disputing the soundness of his arguments.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -643,11 +628,12 @@
 		  <article>
 		    <div class="inner">
 		      <span class="bullet"></span>
-		      <h2>Hill</h2>
+		      <h2 class="grey">Hill</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Supports the replies of Kling and Denning.</li>
+				  <li>Thinks that debate and critics are important for the field and comments just like those of Fetzer’s should not be censured or silenced.</li>
+				  <li>If Fetzer’s arguments are weak, they will fall down because of their own weakness, not because a community of scientists attack him.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -658,8 +644,8 @@
 		      <h2 class="dark">Conte</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Criticizes ACM for giving space to Fetzer to present his arguments.</li>
+				  <li>Thinks that Fetzer’s “original arguments” are really stating obvious things that contribute nothing to the field.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -667,11 +653,11 @@
 		  <article>
 		    <div class="inner">
 		      <span class="bullet"></span>
-		      <h2>Parsons</h2>
+		      <h2 class="grey">Parsons</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Does not like the harsh tone of Fetzer's critics in the Forum.</li>
+				  <li>Used a quote from Bertrand Russell that suggests the critics' faith in verification is beyond what the evidence warrants.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -682,8 +668,9 @@
 		      <h2>Geller</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Science sometimes uses terms like “Artificial Intelligence” that do not describe a field in reality, but are more for <b>propagandistic purposes</b>.</li>
+				  <li>This could mislead people who are not from that field.</li>
+				  <li>In this sense, Geller thinks that the definition that Fetzer is using for “proof” can make sense to a philosopher, but not to a mathematician or programmer.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -694,8 +681,9 @@
 		      <h2>Nelson</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Fetzer’s important contribution is that as an “outsider” he exposed the naivety of research in program verification.</li>
+				  <li>Many computer researchers are still clinging to the possibility of a conclusive verification of computer programs.</li>
+				  <li>Computer programmers should be more realists and not pretend that their abstractions will work perfectly in the real world.</li>
 				</ul>
 		    </div>
 		  </article>
@@ -712,11 +700,12 @@
 		  <article>
 		    <div class="inner">
 		      <span class="bullet"></span>
-		      <h2 class="dark">Tompkins</h2>
+		      <h2 class="grey">Tompkins</h2>
 		      <h4></h4>
 		        <ul class="only">
-				  <li></li>
-				  <li></li>
+				  <li>Weighs in with a similar program to the one Müller and Fetzer have been discussing. In the example, an integer overflow may cause the program to behave unexpectedly in some languages.</li>
+				  <li>Program verification procedures could help if they were intelligent enough to take account of <b>full abstractions</b> of each data item.</li>
+				  <li>If the language modeled in the program verifier does not know all that, and cannot take account of it, that verifier will be relatively useless.</li>
 				</ul>
 		    </div>
 		  </article>
